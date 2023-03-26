@@ -5,6 +5,7 @@
     "node": "^16.13.0 || ^18.12.0"
   },
   "devDependencies": {
+    "lerna": "^6.6.1",
     "prettier": "^2.8.6"
   },
   "prettier": {
@@ -17,5 +18,8 @@
     "type": "git",
     "url": "https://github.com/britishlibrary/BL-design-system"
   },
-  "scripts": {}
+  "scripts": {},
+  "workspaces": [
+    "packages/*"
+  ]
 }
