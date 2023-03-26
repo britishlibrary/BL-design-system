@@ -1,0 +1,21 @@
+{
+  "name": "british-library-design-system",
+  "private": true,
+  "engines": {
+    "node": "^16.13.0 || ^18.12.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.6"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/britishlibrary/BL-design-system"
+  },
+  "scripts": {}
+}

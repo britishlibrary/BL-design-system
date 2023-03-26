@@ -1,0 +1,39 @@
+{
+  "breakpoint": {
+    "root": {
+      "breakpoint": {
+        "value": "0"
+      }
+    },
+    "xs": {
+      "breakpoint": {
+        "value": "576px"
+      }
+    },
+    "s": {
+      "breakpoint": {
+        "value": "768px"
+      }
+    },
+    "m": {
+      "breakpoint": {
+        "value": "1024px"
+      }
+    },
+    "l": {
+      "breakpoint": {
+        "value": "1200px"
+      }
+    },
+    "xl": {
+      "breakpoint": {
+        "value": "1400px"
+      }
+    },
+    "xxl": {
+      "breakpoint": {
+        "value": "1600px"
+      }
+    }
+  }
+}

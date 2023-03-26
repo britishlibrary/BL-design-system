@@ -1,0 +1,28 @@
+{
+  "source": [
+    "src/tokens/light/*.json"
+  ],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "index.scss",
+          "format": "sass/map-deep-double-quotes",
+          "mapName": "tokens"
+        }
+      ]
+    },
+    "ts-flat": {
+      "transformGroup": "js",
+      "buildPath": "src/",
+      "files": [
+        {
+          "destination": "flat.ts",
+          "format": "typescript/es6"
+        }
+      ]
+    }
+  }
+}

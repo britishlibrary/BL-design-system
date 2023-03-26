@@ -1,0 +1,22 @@
+{
+  "zindex": {
+    "modal": {
+      "value": "8000"
+    },
+    "masthead": {
+      "value": "7000"
+    },
+    "sidebar": {
+      "value": "7000"
+    },
+    "overlay": {
+      "value": "6000"
+    },
+    "dropdown": {
+      "value": "5000"
+    },
+    "body": {
+      "value": "0"
+    }
+  }
+}
