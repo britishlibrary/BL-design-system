@@ -56,7 +56,6 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
-    "@britishlibrary/eslint-config": "^1.0.0",
     "@playwright/test": "^1.28.1",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-actions": "^6.5.12",
@@ -162,5 +161,6 @@
   },
   "peerDependencies": {
     "styled-components": ">= 5"
-  }
+  },
+  "gitHead": "51c8c537c134ee42a4b02f1344c7bd67935933cb"
 }

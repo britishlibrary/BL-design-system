@@ -35,5 +35,6 @@
     "type": "git",
     "url": "https://github.com/britishlibrary/BL-design-system",
     "directory": "packages/eslint-config"
-  }
+  },
+  "gitHead": "51c8c537c134ee42a4b02f1344c7bd67935933cb"
 }
