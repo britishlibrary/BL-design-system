@@ -1,7 +1,7 @@
 {
   "name": "@britishlibrary/component-library",
   "description": "A collection of react components and helpers to assist in building applications for The British Library",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -56,7 +56,7 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
-    "@britishlibrary/eslint-config": "^0.0.0",
+    "@britishlibrary/eslint-config": "^1.0.0",
     "@playwright/test": "^1.28.1",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-actions": "^6.5.12",
