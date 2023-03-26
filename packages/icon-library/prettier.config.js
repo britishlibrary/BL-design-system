@@ -1,1 +1,1 @@
-// module.exports = require('@britishlibrary/eslint-config/prettier.config.js')
+module.exports = require('@britishlibrary/eslint-config/prettier.config.js')

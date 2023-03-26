@@ -56,6 +56,7 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
+    "@britishlibrary/eslint-config": "1.0.1-alpha.0",
     "@playwright/test": "^1.28.1",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-actions": "^6.5.12",
@@ -134,9 +135,8 @@
     "dist"
   ],
   "dependencies": {
-    "@britishlibrary/design-tokens": "^3.13.12",
-    "@britishlibrary/fonts": "^3.13.12",
-    "@britishlibrary/icon-library": "^3.13.12",
+    "@britishlibrary/design-tokens": "1.0.1-alpha.0",
+    "@britishlibrary/icon-library": "1.0.1-alpha.0",
     "@popperjs/core": "^2.9.2",
     "@types/react-toast-notifications": "^2.4.0",
     "classnames": "^2.2.6",
@@ -162,5 +162,5 @@
   "peerDependencies": {
     "styled-components": ">= 5"
   },
-  "gitHead": "51c8c537c134ee42a4b02f1344c7bd67935933cb"
+  "gitHead": "8dae67936a2c7c2cac4419c742a5306a50374e22"
 }
