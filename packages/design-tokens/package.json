@@ -5,6 +5,7 @@
   "author": "The British Library",
   "license": "Apache-2.0",
   "publishConfig": {
+    "@britishlibrary:registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "files": [
@@ -14,7 +15,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/britishlibrary/BL-design-system",
+    "url": "https://github.com/britishlibrary/BL-design-system.git",
     "directory": "packages/design-tokens"
   },
   "scripts": {
@@ -68,5 +69,9 @@
   "peerDependencies": {
     "styled-components": "^5.2.1"
   },
-  "gitHead": "ba411e847be4d30dd60c2a5bd8394243ebefde8d"
+  "description": "An agnostic way to store variables such as typography, color, and spacing.",
+  "bugs": {
+    "url": "https://github.com/britishlibrary/BL-design-system/issues"
+  },
+  "homepage": "https://github.com/britishlibrary/BL-design-system#readme"
 }
