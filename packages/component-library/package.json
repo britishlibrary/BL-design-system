@@ -1,7 +1,7 @@
 {
   "name": "@britishlibrary/component-library",
   "description": "A collection of react components and helpers to assist in building applications for The British Library",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publishConfig": {
     "access": "public"
   },
@@ -56,7 +56,7 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
-    "@britishlibrary/eslint-config": "^1.0.3",
+    "@britishlibrary/eslint-config": "^1.0.4",
     "@playwright/test": "^1.28.1",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-actions": "^6.5.12",
@@ -135,8 +135,8 @@
     "dist"
   ],
   "dependencies": {
-    "@britishlibrary/design-tokens": "^1.0.3",
-    "@britishlibrary/icon-library": "^1.0.3",
+    "@britishlibrary/design-tokens": "^1.0.4",
+    "@britishlibrary/icon-library": "^1.0.4",
     "@popperjs/core": "^2.9.2",
     "@types/react-toast-notifications": "^2.4.0",
     "classnames": "^2.2.6",
