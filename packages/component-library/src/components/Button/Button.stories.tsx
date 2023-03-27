@@ -1,8 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
 import { Button } from './index'
-import { COMPONENT_SIZE, BUTTON_VARIANT } from './constants'
+import { BUTTON_VARIANT, COMPONENT_SIZE } from './constants'
 
 export default {
   argTypes: {
@@ -36,6 +35,14 @@ PrimaryDisabled.args = {
   children: 'Primary, disabled',
 }
 
+export const PrimaryLoading = Template.bind({})
+PrimaryLoading.storyName = 'Primary, loading'
+PrimaryLoading.args = {
+  variant: BUTTON_VARIANT.PRIMARY,
+  isLoading: true,
+  children: 'Primary, loading',
+}
+
 export const Secondary = Template.bind({})
 Secondary.args = {
   variant: BUTTON_VARIANT.SECONDARY,
@@ -48,6 +55,14 @@ SecondaryDisabled.args = {
   variant: BUTTON_VARIANT.SECONDARY,
   isDisabled: true,
   children: 'Secondary, disabled',
+}
+
+export const SecondaryLoading = Template.bind({})
+SecondaryLoading.storyName = 'Secondary, loading'
+SecondaryLoading.args = {
+  variant: BUTTON_VARIANT.SECONDARY,
+  isLoading: true,
+  children: 'Secondary, loading',
 }
 
 export const Danger = Template.bind({})
@@ -64,9 +79,27 @@ DangerDisabled.args = {
   children: 'Danger, disabled',
 }
 
+export const DangerLoading = Template.bind({})
+DangerLoading.storyName = 'Danger, loading'
+DangerLoading.args = {
+  variant: BUTTON_VARIANT.DANGER,
+  isLoading: true,
+  children: 'Danger, loading',
+}
+
 export const Small = Template.bind({})
 Small.args = {
   variant: BUTTON_VARIANT.PRIMARY,
   size: COMPONENT_SIZE.SMALL,
   children: 'Small',
 }
+
+export const SmallLoading = Template.bind({})
+SmallLoading.storyName = 'Small, loading'
+SmallLoading.args = {
+  variant: BUTTON_VARIANT.PRIMARY,
+  size: COMPONENT_SIZE.SMALL,
+  children: 'Small, loading',
+  isLoading: true,
+}
+

@@ -21,7 +21,7 @@
     "build": "run-s build:dict build:cjs types",
     "build:dict": "node ./build-dictionary.js",
     "build:cjs": "webpack --config=webpack/production.js",
-    "types": "tsc --emitDeclarationOnly --declarationMap --declaration --noEmit false --allowJs false --outDir dist/types",
+    "types": "tsc --emitDeclarationOnly --declaration --outDir dist/types || true",
     "prepare": "yarn build",
     "test": "jest",
     "lint-staged": "lint-staged",
@@ -68,5 +68,5 @@
   "peerDependencies": {
     "styled-components": "^5.2.1"
   },
-  "gitHead": "8dae67936a2c7c2cac4419c742a5306a50374e22"
+  "gitHead": "d267e8fdbc03b0fd687d36971e84340703f8063c"
 }

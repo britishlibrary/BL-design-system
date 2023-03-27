@@ -29,5 +29,6 @@ export const StyledContainer = styled.div<StyledContainerProps>`
   max-width: ${CONTAINER_CONTENT_WIDTH};
   margin-left: auto;
   margin-right: auto;
+
   ${({ $size }) => sizeStyles[$size]}
 `

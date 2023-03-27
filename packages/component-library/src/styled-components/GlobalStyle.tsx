@@ -21,6 +21,7 @@ const BoxSizing = createGlobalStyle`
   html {
     box-sizing: border-box;
   }
+
   * {
     &,
     &::before,
@@ -38,6 +39,7 @@ const Hyperlinks = createGlobalStyle`
     color: ${color('action', '500')};
     text-decoration: none;
   }
+
   a:hover {
     text-decoration: underline;
   }
@@ -51,36 +53,43 @@ const Fonts = createGlobalStyle`
     font-family: "lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: ${fontSize('m')};
   }
+
   h1,
   .rn-h1 {
     margin: 0;
     font-size: ${fontSize('xxl')};
   }
+
   h2,
   .rn-h2 {
     margin: 0;
     font-size: ${fontSize('xl')};
   }
+
   h3,
   .rn-h3 {
     margin: 0;
     font-size: ${fontSize('l')};
   }
+
   h4,
   .rn-h4 {
     margin: 0;
     font-size: ${fontSize('m')};
   }
+
   h5,
   .rn-h5 {
     margin: 0;
     font-size: ${fontSize('base')};
   }
+
   h6,
   .rn-h6 {
     margin: 0;
     font-size: ${fontSize('s')};
   }
+
   ol, ul, li,
   p, .rn-p {
     margin: 0;

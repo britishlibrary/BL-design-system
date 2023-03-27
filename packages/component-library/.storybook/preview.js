@@ -2,7 +2,6 @@ import { DocsPage } from '@storybook/addon-docs'
 import isChromatic from 'chromatic'
 import React from 'react'
 // import '@britishlibrary/fonts'
-import 'iframe-resizer/js/iframeResizer.contentWindow'
 import 'url-search-params-polyfill'
 import { withPerformance } from 'storybook-addon-performance/dist/cjs'
 

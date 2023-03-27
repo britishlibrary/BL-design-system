@@ -3,6 +3,7 @@ import { selectors } from '@britishlibrary/design-tokens'
 import { rgba } from 'polished'
 
 import { ComponentSizeType, COMPONENT_SIZE, BUTTON_VARIANT } from '../constants'
+import { ButtonVariantType } from '../Button'
 
 const { color, spacing, fontSize, shadow } = selectors
 
@@ -61,7 +62,7 @@ interface StyledButtonProps {
 
 export function getButtonStyles({
   $size,
-  $variant
+  $variant,
 }: StyledButtonProps) {
   return css`
     height: ${SIZE_MAP[$size].height};
@@ -79,27 +80,33 @@ export function getButtonStyles({
     user-select: none;
     transition: all 75ms cubic-bezier(0, 1.19, 0.82, 0.9);
     white-space: nowrap;
+
     &:hover {
       text-decoration: none;
     }
+
     &:active {
       box-shadow: ${TRANSPARENT_SHADOW}, ${TRANSPARENT_SHADOW};
     }
+
     ${css`
       color: ${COLOR_MAP[$variant].color};
       background-color: ${COLOR_MAP[$variant].backgroundColor};
       border: ${COLOR_MAP[$variant].borderWidth} solid
         ${COLOR_MAP[$variant].borderColor};
+
       &:focus,
       &:hover {
         background-color: ${COLOR_MAP[$variant].hoverBackgroundColor};
         box-shadow: ${COLOR_MAP[$variant].hoverBoxShadow}, ${DROP_SHADOW};
       }
+
       &:active {
         background-color: ${COLOR_MAP[$variant].activeBackgroundColor};
         box-shadow: ${TRANSPARENT_SHADOW}, ${TRANSPARENT_SHADOW};
       }
     `}
+
     &:disabled {
       &,
       &:hover,

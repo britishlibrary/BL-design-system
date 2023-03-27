@@ -1,10 +1,9 @@
 import React, { FormEvent } from 'react'
 
-import { BUTTON_VARIANT } from './constants'
+import { ComponentSizeType, COMPONENT_SIZE, BUTTON_VARIANT } from './constants'
 import { ComponentWithClass } from '../../common/ComponentWithClass'
 import { StyledButton } from './partials/StyledButton'
 import { StyledText } from './partials/StyledText'
-import { ComponentSizeType, COMPONENT_SIZE } from './constants'
 import { ValueOf } from '../../helpers'
 
 export type ButtonVariantType = ValueOf<typeof BUTTON_VARIANT>
@@ -15,6 +14,12 @@ interface ButtonBaseProps extends Omit<ComponentWithClass, 'children'> {
    * interaction).
    */
   isDisabled?: boolean
+  /**
+   * Whether an operation is in progress and the button temporarily can't be
+   * used. If set, the button will be disabled and a loading icon displayed in
+   * place of the button text.
+   */
+  isLoading?: boolean
   /**
    * Optional handler called when the component is clicked.
    */
@@ -45,14 +50,7 @@ export interface ButtonWithTextProps extends ButtonBaseProps {
   title?: string
 }
 
-export interface ButtonWithIconOnlyProps extends ButtonBaseProps {
-  children?: never
-  title: string
-}
-
-export type ButtonProps = ButtonWithTextProps | ButtonWithIconOnlyProps
-
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonWithTextProps> = ({
   children,
   className,
   isDisabled,

@@ -23,6 +23,10 @@ describe('Button', () => {
       expect(button).toHaveAttribute('type', 'button')
     })
 
+    it('should not render an icon', () => {
+      expect(wrapper.queryByTestId('button-icon')).toBeNull()
+    })
+
     describe('when the button is clicked', () => {
       beforeEach(() => {
         fireEvent.click(button)

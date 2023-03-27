@@ -28,18 +28,6 @@ function isIE11(): boolean {
   return !!window.MSInputMethodContext && !!document.documentMode
 }
 
-function warnIfOverwriting<P>(
-  props: P,
-  propertyName: string,
-  componentName: string
-): void {
-  if (props[propertyName]) {
-    logger.warn(
-      `Prop \`${propertyName}\` on \`${componentName}\` will be overwritten`
-    )
-  }
-}
-
 function withKey(
   element: React.ReactElement,
   prefix: string,
@@ -67,7 +55,6 @@ export {
   getKey,
   hasClass,
   isIE11,
-  warnIfOverwriting,
   withKey,
   sleep,
 }
