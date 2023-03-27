@@ -73,5 +73,6 @@
   "bugs": {
     "url": "https://github.com/britishlibrary/BL-design-system/issues"
   },
-  "homepage": "https://github.com/britishlibrary/BL-design-system#readme"
+  "homepage": "https://github.com/britishlibrary/BL-design-system#readme",
+  "gitHead": "7f5094ba6497f12ed896add6cc37b22f8f6e2763"
 }

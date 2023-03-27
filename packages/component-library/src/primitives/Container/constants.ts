@@ -1,1 +1,0 @@
-export const CONTAINER_CONTENT_WIDTH = '1280px'
