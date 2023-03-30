@@ -5,7 +5,7 @@
   "author": "The British Library",
   "license": "Apache-2.0",
   "publishConfig": {
-    "@britishlibrary:registry": "https://npm.pkg.github.com",
+    "@britishlibrary:registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "files": [

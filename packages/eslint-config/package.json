@@ -8,6 +8,7 @@
   "author": "The British Library",
   "license": "MIT",
   "publishConfig": {
+    "@britishlibrary:registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "lint-staged": {
