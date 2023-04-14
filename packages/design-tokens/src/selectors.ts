@@ -15,7 +15,7 @@ export default {
   breakpoint: getBreakpoint,
   animation: getAnimation,
   color: getColor,
-  typography: getTypography,
+  fontSize: getTypography,
   shadow: getShadow,
   spacing: getSpacing,
   zIndex: getZIndex,
