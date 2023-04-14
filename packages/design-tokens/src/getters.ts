@@ -20,7 +20,7 @@ function getTheme(theme?: Theme): Theme {
   return theme?.colorsTokens ? theme : defaultTheme
 }
 
-function isTokenValid(token: unknown): boolean {
+function isTokenValid(token: unknown): token is string {
   return !isNil(token) && token !== ''
 }
 
