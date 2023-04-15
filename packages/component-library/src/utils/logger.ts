@@ -1,6 +1,12 @@
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error' | '__MODDS_LOG_LEVEL'
 
 export type Logger = Record<LogLevel, typeof console.log>
+interface CustomConsole extends Console {
+  __MODDS_LOG_LEVEL: {
+    <T>(...data: T[]): void;
+    (message: unknown | string, ...optionalParams: any[]): void;
+  };
+}
 
 const MODDS_LOG_LEVEL: LogLevel = '__MODDS_LOG_LEVEL'
 const levels: LogLevel[] = ['debug', 'info', 'warn', 'error']
@@ -29,10 +35,16 @@ export default levels.reduce((logger, level: LogLevel, index: number) => {
         console &&
         isValidLogLevel(MODDS_LOG_LEVEL, index)
       ) {
-        const [message, ...rest] = [...args]
+        const [message, ...rest]: [string, ...unknown[]] = args as [
+          string,
+          ...unknown[]
+        ]
 
         // eslint-disable-next-line no-console
-        console[func](`${level.toUpperCase()} - MODDS - ${message}`, ...rest)
+        ;(console as CustomConsole)[func](
+          `${level.toUpperCase()} - MODDS - ${message}`,
+          ...rest
+        )
       }
     },
   }
