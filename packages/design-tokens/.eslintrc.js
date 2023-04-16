@@ -1,11 +1,10 @@
 module.exports = {
+  extends: ['@britishlibrary/eslint-config'],
   parserOptions: {
-    project: './tsconfig.json',
+    project: 'tsconfig.eslint.json',
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
   },
-  extends: [
-    '@typescript-eslint/parser',
-    '@britishlibrary/eslint-config'
-  ],
   rules: {
     'import/extensions': [
       'error',

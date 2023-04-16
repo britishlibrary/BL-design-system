@@ -1,12 +1,34 @@
 {
   "name": "british-library-design-system",
   "private": true,
+  "workspaces": [
+    "packages/eslint-config",
+    "packages/icon-library",
+    "packages/component-library",
+    "packages/design-tokens"
+  ],
   "engines": {
     "node": "^16.13.0 || ^18.12.0"
   },
   "devDependencies": {
-    "lerna": "^6.6.1",
-    "prettier": "^2.8.6"
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@commitlint/lint": "^17.0.0",
+    "@octokit/rest": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lerna": "^6.0.1",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.0.5"
+  },
+  "resolutions": {
+    "**/ansi-regex": "^5.0.1",
+    "**/git-url-parse": "^13.1.0",
+    "**/glob-parent": "^5.1.2",
+    "**/playwright": "^1.32.3",
+    "**/trim": "^0.0.3",
+    "**/trim-newlines": "^3.0.1"
   },
   "prettier": {
     "bracketSpacing": true,
@@ -16,10 +38,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/britishlibrary/BL-design-system"
+    "url": "https://github.com/britishlibrary/BL-design-system.git"
   },
-  "scripts": {},
-  "workspaces": [
-    "packages/*"
-  ]
+  "scripts": {
+    "build": "lerna run --stream --concurrency 1 build",
+    "lint": "lerna run --parallel lint",
+    "test": "lerna run --parallel test",
+    "storybook:static": "lerna run --parallel storybook:static",
+    "lerna:prerelease": "yarn lerna:run-version --conventional-prerelease=* --no-changelog -m \"chore(Prerelease): %v [skip ci]\"",
+    "lerna:version": "yarn lerna:run-version --conventional-graduate --create-release github -m \"chore(Release): %v\"",
+    "lerna:run-version": "lerna version --force-publish=* --tag-version-prefix=''",
+    "prepare": "husky install"
+  }
 }

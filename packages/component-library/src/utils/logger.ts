@@ -3,9 +3,10 @@ export type LogLevel = 'debug' | 'info' | 'warn' | 'error' | '__MODDS_LOG_LEVEL'
 export type Logger = Record<LogLevel, typeof console.log>
 interface CustomConsole extends Console {
   __MODDS_LOG_LEVEL: {
-    <T>(...data: T[]): void;
-    (message: unknown | string, ...optionalParams: any[]): void;
-  };
+    <T>(...data: T[]): void
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (message: unknown | string, ...optionalParams: any[]): void
+  }
 }
 
 const MODDS_LOG_LEVEL: LogLevel = '__MODDS_LOG_LEVEL'
