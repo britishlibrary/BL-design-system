@@ -40,6 +40,9 @@ module.exports = {
     }
   },
   stories: ['../src/**/*.stories.tsx'],
+  typescript: {
+    reactDocgen: 'react-docgen-typescript-plugin',
+  },
   reactOptions: {
     strictMode: process.env.REACT_STRICT_MODE === '1',
   },

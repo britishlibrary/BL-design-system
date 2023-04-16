@@ -62,3 +62,7 @@ yarn test:e2e:show-report
 [chromatic](https://www.chromatic.com/)
 
 Ship UIs faster with automated workflows for Storybook
+
+## Notes
+
+- If you have issues with storybook, remove node modules and reinstall is a good first troubleshooter, failing that add  --no-manager-cache to your start-storybook command. But remove it once rebuilt. 
