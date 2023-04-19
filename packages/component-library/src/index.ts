@@ -10,5 +10,6 @@ export * from './styled-components'
 
 // Components
 export * from './components/Button'
+export * from './components/Box'
 
 export * from './primitives/Container'
