@@ -54,12 +54,5 @@ The top level project contains scripts that are then executed for all packages.
 
 We use [Chromatic](https://www.chromaticqa.com/) for visual regression testing.
 
-## Todo: 
 
-- Add british library eslint as dependency to Icon Library
-- Add british library eslint as dependency to Design Tokens
-
-- Setup example component in component-library
-- Setup JEST in component-library
-- Setup e2e (playwright) in component-library
-- Setup storybook properly
+## Todo:

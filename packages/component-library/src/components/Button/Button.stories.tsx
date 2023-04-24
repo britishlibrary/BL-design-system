@@ -4,11 +4,6 @@ import { Button } from './index'
 import { BUTTON_VARIANT, COMPONENT_SIZE } from './constants'
 
 export default {
-  argTypes: {
-    icon: {
-      control: false,
-    },
-  },
   component: Button,
   title: 'Button',
   parameters: { actions: { argTypesRegex: '^on.*' } },
@@ -102,4 +97,3 @@ SmallLoading.args = {
   children: 'Small, loading',
   isLoading: true,
 }
-

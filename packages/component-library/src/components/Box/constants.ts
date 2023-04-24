@@ -5,11 +5,11 @@ const BOX_VARIANT = {
   DARK: 'dark',
 } as const
 
-export const BOX_SIZE = {
+export const BOX_PADDING = {
   LARGE: 'large',
   SMALL: 'small',
 } as const
 
-export type BoxSizeType = ValueOf<typeof BOX_SIZE>
+export type BoxPaddingType = ValueOf<typeof BOX_PADDING>
 
 export { BOX_VARIANT }

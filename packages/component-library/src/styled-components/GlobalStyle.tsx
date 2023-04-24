@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from 'react'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { Normalize } from 'styled-normalize'
 import { selectors, lightTheme } from '@britishlibrary/design-tokens'
 
@@ -121,7 +121,7 @@ export const GlobalStyleProvider: React.FC<GlobalStyleProviderProps> = ({
       <BoxSizing />
       <Hyperlinks />
       <Fonts />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      {children}
     </GlobalStyleContext.Provider>
   )
 }

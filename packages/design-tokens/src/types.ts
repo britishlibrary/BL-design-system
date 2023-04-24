@@ -39,6 +39,25 @@ export type Breakpoint = {
   breakpoint: string
 }
 
+export type Breakpoints = {
+  root: number
+  xs: number
+  s: number
+  m: number
+  l: number
+  xl: number
+  xxl: number
+}
+
+export type Viewports = {
+  xs: number
+  s: number
+  m: number
+  l: number
+  xl: number
+  xxl: number
+} & string
+
 export type ColorGroup = keyof Tokens['colorsTokens']['color']
 
 export type ColorShade =

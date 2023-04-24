@@ -6,6 +6,8 @@ import {
   AnimationTiming,
   BreakpointSize,
   Breakpoint,
+  Breakpoints,
+  Viewports,
   ColorGroup,
   ColorShade,
   ShadowWeight,
@@ -39,6 +41,39 @@ export function getBreakpoint(size: BreakpointSize, theme?: Theme): Breakpoint {
   }
 
   throw new Error(`Invalid breakpoint token for size: '${size}'`)
+}
+
+export function getBreakpoints(theme?: Theme): Breakpoints {
+  const { breakpointsTokens } = getTheme(theme)
+
+  const breakpoints = get(breakpointsTokens, 'breakpoint')
+
+  if (isTokenValid(breakpoints)) {
+    return Object.keys(breakpoints).reduce((acc: Partial<Breakpoints>, key) => {
+      const breakpoint = get(
+        breakpointsTokens,
+        `breakpoint[${key}].breakpoint.value`
+      )
+      return {
+        ...acc,
+        [key]: breakpoint,
+      }
+    }, {}) as Breakpoints
+  }
+
+  throw new Error('Invalid breakpoints token')
+}
+
+export function getViewports(theme?: Theme): Viewports {
+  const { breakpointsTokens } = getTheme(theme)
+
+  const viewports = get(breakpointsTokens, 'viewports')
+
+  if (isTokenValid(viewports)) {
+    return viewports
+  }
+
+  throw new Error('Invalid breakpoints token')
 }
 
 export function getMediaQuery(

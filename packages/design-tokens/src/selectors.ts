@@ -1,5 +1,7 @@
 import {
   getBreakpoint,
+  getBreakpoints,
+  getViewports,
   getMediaQuery,
   getAnimation,
   getColor,
@@ -13,6 +15,8 @@ export default {
   mq: getMediaQuery,
   mediaQuery: getMediaQuery,
   breakpoint: getBreakpoint,
+  breakpoints: getBreakpoints,
+  viewports: getViewports,
   animation: getAnimation,
   color: getColor,
   fontSize: getTypography,

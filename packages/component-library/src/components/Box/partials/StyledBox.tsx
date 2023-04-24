@@ -1,53 +1,47 @@
 import styled, { css } from 'styled-components'
-import { selectors } from '@britishlibrary/design-tokens'
-import { rgba } from 'polished'
+import { lightTheme, darkTheme, selectors } from '@britishlibrary/design-tokens'
 
-import { BoxSizeType, BOX_SIZE, BOX_VARIANT } from '../constants'
+import { BoxPaddingType, BOX_PADDING, BOX_VARIANT } from '../constants'
 import { BoxVarientType } from '../Box'
 
-const { color, spacing, fontSize, shadow } = selectors
-
-const DROP_SHADOW = `0 2px 6px ${rgba(0, 0, 0, 0.3)}`
-const TRANSPARENT_SHADOW = shadow('0')
+const { color, spacing, fontSize } = selectors
 
 const COLOR_MAP = {
   [BOX_VARIANT.LIGHT]: {
-    backgroundColor: color('action', '100'),
+    backgroundColor: color('neutral', '100', lightTheme),
   },
   [BOX_VARIANT.DARK]: {
-    backgroundColor: color('action', '600'),
+    backgroundColor: color('neutral', '800', darkTheme),
   },
 }
 
-const SIZE_MAP = {
-  [BOX_SIZE.LARGE]: {
-    size: '250px',
+const PADDING_MAP = {
+  [BOX_PADDING.LARGE]: {
+    padding: spacing('6'),
     fontSize: fontSize('m'),
-    borderRadius: '15px',
+    color: color('neutral', 'black'),
   },
-  [BOX_SIZE.SMALL]: {
-    size: '150px',
+  [BOX_PADDING.SMALL]: {
+    padding: spacing('2'),
     fontSize: fontSize('base'),
-    borderRadius: '10px',
+    color: color('neutral', 'white'),
   },
 }
 
 interface StyledBoxProps {
   $variant: BoxVarientType
-  $size: BoxSizeType
+  $padding: BoxPaddingType
 }
 
-export function getBoxStyles({ $size, $variant }: StyledBoxProps) {
+export function getBoxStyles({ $padding, $variant }: StyledBoxProps) {
   return css`
-    height: ${SIZE_MAP[$size].size};
-    width: ${SIZE_MAP[$size].size};
+    padding: ${PADDING_MAP[$padding].padding};
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: ${SIZE_MAP[$size].borderRadius};
-    box-shadow: ${TRANSPARENT_SHADOW}, ${DROP_SHADOW};
+    borderRadius: '4px',
     outline: 0;
-    padding: 0 ${spacing('6')};
+    color: #fff;
 
     ${css`
       background-color: ${COLOR_MAP[$variant].backgroundColor};
