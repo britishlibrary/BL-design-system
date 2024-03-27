@@ -1,5 +1,24 @@
-<style>
-  #root {
-    position: static;
+<style type="text/css">
+  /* https://github.com/storybookjs/storybook/issues/8011 */
+  #docs-root .sbdocs-h2:first-of-type {
+    margin-bottom: 40px;
+  }
+
+  #docs-root .docs-story {
+    overflow: visible;
+  }
+
+  #docs-root .docs-story > div:first-child {
+    margin: unset;
+  }
+
+  #docs-root .docs-story > div:first-child > div:first-child {
+    transform: none;
+    height: auto;
+  }
+
+  .rn-sidebar--storybook {
+    position: unset !important;
+    max-height: 30rem;
   }
 </style>

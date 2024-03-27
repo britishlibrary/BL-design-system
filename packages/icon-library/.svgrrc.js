@@ -3,9 +3,11 @@ const template = ({ componentName, exports, interfaces, jsx }, { tpl }) => {
     import React from 'react'
     import { SVGIconProps } from '../types'
     ${interfaces}
+
     const ${componentName} = ({ size = 16, ...props }: SVGIconProps) => (
       ${jsx}
     );
+    
     ${exports}
   `
 }

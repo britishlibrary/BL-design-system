@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@britishlibrary/eslint-config'],
+  extends: ['@britishlibrary/eslint-config', 'plugin:storybook/recommended'],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',

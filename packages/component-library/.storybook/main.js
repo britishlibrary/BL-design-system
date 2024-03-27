@@ -1,44 +1,65 @@
+const { dirname, join } = require('path')
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')))
+}
+
 module.exports = {
   addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-    '@storybook/addon-controls',
-    '@storybook/addon-actions',
-    'storybook-addon-performance/dist/cjs/register',
-    'storybook-mobile',
     {
       name: '@storybook/addon-docs',
       options: {
         configureJSX: true,
       },
     },
-    {
-      name: '@storybook/addon-styling',
-      options: {
-        sass: {
-          // Require your Sass preprocessor here
-          implementation: require('sass'),
-        },
-      },
-    },
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-interactions'),
+    getAbsolutePath('@storybook/addon-a11y'),
   ],
-  core: {
-    builder: 'webpack5',
-  },
+
   previewHead: (head) => `
     ${head}
   `,
-  stories: ['../src/**/*.stories.(tsx|mdx)'],
+
+  webpackFinal: (config) => {
+    // Transpile Downshift for IE11 compatibility
+    return {
+      ...config,
+      module: {
+        ...config.module,
+        rules: [
+          ...config.module.rules,
+          {
+            test: /\.m?js$/,
+            include: /node_modules\/downshift\//,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env'],
+              },
+            },
+          },
+        ],
+      },
+    }
+  },
+
+  stories: ['../src/**/*.stories.tsx'],
+
+  framework: {
+    name: getAbsolutePath('@storybook/react-webpack5'),
+
+    options: {
+      strictMode: false,
+    },
+  },
+
+  docs: {
+    autodocs: true,
+  },
+
   typescript: {
-    reactDocgen: 'react-docgen-typescript-plugin',
-  },
-  reactOptions: {
-    strictMode: process.env.REACT_STRICT_MODE === '1',
-  },
-  staticDirs: [{ from: '../storybook-static', to: 'assets/' }],
-  /* Needed workaround */
-  managerWebpack: (config, options) => {
-    options.cache.set = () => Promise.resolve()
-    return config
+    reactDocgen: 'react-docgen',
   },
 }

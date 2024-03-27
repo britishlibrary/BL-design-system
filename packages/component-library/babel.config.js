@@ -15,8 +15,8 @@ module.exports = {
             replace: 'replacement',
           },
           {
-            search: /__MODDS_LOG_LEVEL/,
-            replace: process.env.MODDS_LOG_LEVEL || 'warn',
+            search: /__BLDS_LOG_LEVEL/,
+            replace: process.env.BLDS_LOG_LEVEL || 'warn',
           },
         ],
       },

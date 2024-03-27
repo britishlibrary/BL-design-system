@@ -14,21 +14,21 @@ The following view layer libraries are currently supported:
 
 ## Installation & quick start
 
-### Installation
+### Using the Design System in your own project
 
 To install and save to your project's package.json dependencies, run:
 
 ```
 # with npm
-npm install @britishlibrary/fonts @britishlibrary/component-library styled-components
+npm install @britishlibrary/component-library @britishlibrary/icon-library @britishlibrary/eslint-config styled-components
 
 # ...or with yarn
-yarn add @britishlibrary/fonts @britishlibrary/component-library styled-components
+yarn add @britishlibrary/component-library @britishlibrary/icon-library @britishlibrary/eslint-config styled-components
 ```
 
 Note: [`styled-components`](https://styled-components.com/) is a required [peer dependency](https://nodejs.org/en/blog/npm/peer-dependencies/) and is installed with the above command.
 
-## Run locally
+## Run the Design System locally
 
 You'll need [Git](https://help.github.com/articles/set-up-git/) and [Node.js](https://nodejs.org/en/) installed to get this project running.
 
@@ -53,6 +53,3 @@ The top level project contains scripts that are then executed for all packages.
 <a href="https://www.chromaticqa.com/"><img src="https://cdn-images-1.medium.com/letterbox/147/36/50/50/1*oHHjTjInDOBxIuYHDY2gFA.png?source=logoAvatar-d7276495b101---37816ec27d7a" width="120"/></a>
 
 We use [Chromatic](https://www.chromaticqa.com/) for visual regression testing.
-
-
-## Todo:

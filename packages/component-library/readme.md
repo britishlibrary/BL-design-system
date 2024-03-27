@@ -4,7 +4,7 @@ A collection of React components written for The British Library web application
 
 ## Installation
 
-The British Library Component Library is available as an [NPM package](https://www.npmjs.com/package/@britishlibary/component-library).
+The British Library Component Library is available as an [NPM package](https://www.npmjs.com/package/@britishlibrary/component-library).
 
 To install it, run the relevant command for your package manager:
 
