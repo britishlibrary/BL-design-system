@@ -1,20 +1,17 @@
 import { get, isNil } from 'lodash'
-import { css } from 'styled-components'
+import { css, Interpolation } from 'styled-components'
 
 import defaultTheme from './themes/light'
 import {
   AnimationTiming,
   BreakpointSize,
   Breakpoint,
-  Breakpoints,
-  Viewports,
   ColorGroup,
   ColorShade,
   ShadowWeight,
   Spacing,
   TypographySize,
   ZIndexGroup,
-  StyledComponentsInterpolation,
   Theme,
 } from './types'
 
@@ -22,7 +19,7 @@ function getTheme(theme?: Theme): Theme {
   return theme?.colorsTokens ? theme : defaultTheme
 }
 
-function isTokenValid(token: unknown): token is string {
+function isTokenValid(token: unknown): boolean {
   return !isNil(token) && token !== ''
 }
 
@@ -43,39 +40,6 @@ export function getBreakpoint(size: BreakpointSize, theme?: Theme): Breakpoint {
   throw new Error(`Invalid breakpoint token for size: '${size}'`)
 }
 
-export function getBreakpoints(theme?: Theme): Breakpoints {
-  const { breakpointsTokens } = getTheme(theme)
-
-  const breakpoints = get(breakpointsTokens, 'breakpoint')
-
-  if (isTokenValid(breakpoints)) {
-    return Object.keys(breakpoints).reduce((acc: Partial<Breakpoints>, key) => {
-      const breakpoint = get(
-        breakpointsTokens,
-        `breakpoint[${key}].breakpoint.value`
-      )
-      return {
-        ...acc,
-        [key]: breakpoint,
-      }
-    }, {}) as Breakpoints
-  }
-
-  throw new Error('Invalid breakpoints token')
-}
-
-export function getViewports(theme?: Theme): Viewports {
-  const { breakpointsTokens } = getTheme(theme)
-
-  const viewports = get(breakpointsTokens, 'viewports')
-
-  if (isTokenValid(viewports)) {
-    return viewports
-  }
-
-  throw new Error('Invalid breakpoints token')
-}
-
 export function getMediaQuery(
   options: {
     gte: BreakpointSize
@@ -85,7 +49,7 @@ export function getMediaQuery(
   theme?: Theme
 ): (
   strings: TemplateStringsArray,
-  ...interpolations: StyledComponentsInterpolation[]
+  ...interpolations: Interpolation<object>[]
 ) => string {
   const { gte, lt, media } = {
     media: 'only screen and',
@@ -106,7 +70,7 @@ export function getMediaQuery(
 
   return function mqTagFunction(
     strings: TemplateStringsArray,
-    ...interpolations: StyledComponentsInterpolation[]
+    ...interpolations: Interpolation<object>[]
   ): string {
     if (breakpointGTE && !breakpointLT) {
       return css`
@@ -145,7 +109,8 @@ export function getColor(
 ): string {
   const value = get(
     getTheme(theme).colorsTokens,
-    `color[${group}][${weight}].value`
+    `color[${group}][${weight}].value`,
+    ''
   )
 
   if (isTokenValid(value)) {

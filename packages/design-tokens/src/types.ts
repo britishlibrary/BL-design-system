@@ -1,5 +1,3 @@
-import type { InterpolationValue } from 'styled-components'
-
 import * as animationTokens from './tokens/light/animation.json'
 import * as breakpointsTokens from './tokens/light/breakpoints.json'
 import * as colorsTokens from './tokens/light/colors.json'
@@ -18,13 +16,6 @@ const tokens = {
   zindexTokens,
 }
 
-export type StyledComponentsInterpolation =
-  | ((
-      executionContext: Record<string, unknown>
-    ) => StyledComponentsInterpolation)
-  | InterpolationValue
-  | readonly StyledComponentsInterpolation[]
-
 export type Tokens = typeof tokens
 
 export type Theme = Tokens & { mode: string }
@@ -38,25 +29,6 @@ export type BreakpointSize = keyof Tokens['breakpointsTokens']['breakpoint']
 export type Breakpoint = {
   breakpoint: string
 }
-
-export type Breakpoints = {
-  root: number
-  xs: number
-  s: number
-  m: number
-  l: number
-  xl: number
-  xxl: number
-}
-
-export type Viewports = {
-  xs: number
-  s: number
-  m: number
-  l: number
-  xl: number
-  xxl: number
-} & string
 
 export type ColorGroup = keyof Tokens['colorsTokens']['color']
 

@@ -1,15 +1,26 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
+
+import { IconBrightnessLow } from '@britishlibrary/icon-library'
 import { Button } from './index'
-import { BUTTON_VARIANT, COMPONENT_SIZE } from './constants'
+import {
+  COMPONENT_SIZE,
+  BUTTON_VARIANT,
+  BUTTON_ICON_POSITION,
+} from './constants'
 
 export default {
+  argTypes: {
+    icon: {
+      control: false,
+    },
+  },
   component: Button,
   title: 'Button',
   parameters: { actions: { argTypesRegex: '^on.*' } },
-} as ComponentMeta<typeof Button>
+} as Meta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: StoryFn<typeof Button> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -38,10 +49,44 @@ PrimaryLoading.args = {
   children: 'Primary, loading',
 }
 
+export const PrimaryLeftIcon = Template.bind({})
+PrimaryLeftIcon.storyName = 'Primary, with left icon'
+PrimaryLeftIcon.args = {
+  children: 'Primary',
+  icon: <IconBrightnessLow />,
+  iconPosition: BUTTON_ICON_POSITION.LEFT,
+}
+
+export const PrimaryRightIcon = Template.bind({})
+PrimaryRightIcon.storyName = 'Primary, with right icon'
+PrimaryRightIcon.args = {
+  children: 'Primary',
+  icon: <IconBrightnessLow />,
+  iconPosition: BUTTON_ICON_POSITION.RIGHT,
+}
+
+export const IconNoText = Template.bind({})
+IconNoText.storyName = 'Icon, no text'
+IconNoText.args = {
+  variant: BUTTON_VARIANT.ICON,
+  children: undefined,
+  icon: <IconBrightnessLow />,
+  title: 'Reduce brightness',
+}
+
 export const Secondary = Template.bind({})
 Secondary.args = {
   variant: BUTTON_VARIANT.SECONDARY,
   children: 'Secondary',
+}
+
+export const SecondaryLeftIcon = Template.bind({})
+SecondaryLeftIcon.storyName = 'Secondary, with left icon'
+SecondaryLeftIcon.args = {
+  variant: BUTTON_VARIANT.SECONDARY,
+  children: 'Secondary',
+  icon: <IconBrightnessLow />,
+  iconPosition: BUTTON_ICON_POSITION.LEFT,
 }
 
 export const SecondaryDisabled = Template.bind({})
@@ -58,6 +103,37 @@ SecondaryLoading.args = {
   variant: BUTTON_VARIANT.SECONDARY,
   isLoading: true,
   children: 'Secondary, loading',
+}
+
+export const Tertiary = Template.bind({})
+Tertiary.args = {
+  variant: BUTTON_VARIANT.TERTIARY,
+  children: 'Tertiary',
+}
+
+export const TertiaryLeftIcon = Template.bind({})
+TertiaryLeftIcon.storyName = 'Tertiary, with left icon'
+TertiaryLeftIcon.args = {
+  variant: BUTTON_VARIANT.TERTIARY,
+  children: 'Tertiary',
+  icon: <IconBrightnessLow />,
+  iconPosition: BUTTON_ICON_POSITION.LEFT,
+}
+
+export const TertiaryDisabled = Template.bind({})
+TertiaryDisabled.storyName = 'Tertiary, disabled'
+TertiaryDisabled.args = {
+  variant: BUTTON_VARIANT.TERTIARY,
+  isDisabled: true,
+  children: 'Tertiary, disabled',
+}
+
+export const TertiaryLoading = Template.bind({})
+TertiaryLoading.storyName = 'Tertiary, loading'
+TertiaryLoading.args = {
+  variant: BUTTON_VARIANT.TERTIARY,
+  isLoading: true,
+  children: 'Tertiary, loading',
 }
 
 export const Danger = Template.bind({})
@@ -96,4 +172,13 @@ SmallLoading.args = {
   size: COMPONENT_SIZE.SMALL,
   children: 'Small, loading',
   isLoading: true,
+}
+
+export const SmallIconNoText = Template.bind({})
+SmallIconNoText.storyName = 'Small, with icon, no text '
+SmallIconNoText.args = {
+  variant: BUTTON_VARIANT.ICON,
+  size: COMPONENT_SIZE.SMALL,
+  icon: <IconBrightnessLow />,
+  title: 'Reduce brightness',
 }

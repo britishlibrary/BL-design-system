@@ -5,38 +5,48 @@ describe('logger', () => {
   let consoleWarnSpy: jest.SpyInstance
   let consoleErrorSpy: jest.SpyInstance
 
+  beforeEach(() => {
+    // Mock console methods before each test
+    /* eslint-disable */
+    consoleLogSpy = jest
+      .spyOn(global.console, 'log')
+      .mockImplementation(() => {})
+    consoleWarnSpy = jest
+      .spyOn(global.console, 'warn')
+      .mockImplementation(() => {})
+    consoleErrorSpy = jest
+      .spyOn(global.console, 'error')
+      .mockImplementation(() => {})
+    /* eslint-enable */
+  })
+
+  afterEach(() => {
+    // Restore the original implementations after each test
+    jest.restoreAllMocks()
+  })
+
   describe('debug', () => {
     it('invokes `console.log` with the correct message', () => {
-      consoleLogSpy = jest.spyOn(global.console, 'log')
       logger.debug('Hello, World!')
-
       expect(consoleLogSpy).toHaveBeenCalledTimes(1)
-      expect(consoleLogSpy).toHaveBeenCalledWith(
-        'DEBUG - MODDS - Hello, World!'
-      )
+      expect(consoleLogSpy).toHaveBeenCalledWith('DEBUG - BLDS - Hello, World!')
     })
   })
 
   describe('warn', () => {
     it('invokes `console.warn` with the correct message', () => {
-      consoleWarnSpy = jest.spyOn(global.console, 'warn')
       logger.warn('Hello, World!')
-
       expect(consoleWarnSpy).toHaveBeenCalledTimes(1)
-      expect(consoleWarnSpy).toHaveBeenCalledWith(
-        'WARN - MODDS - Hello, World!'
-      )
+      expect(consoleWarnSpy).toHaveBeenCalledWith('WARN - BLDS - Hello, World!')
     })
   })
 
   describe('error', () => {
     it('invokes `console.error` with the correct message', () => {
-      consoleErrorSpy = jest.spyOn(global.console, 'error')
       logger.error('Hello, World!')
-
       expect(consoleErrorSpy).toHaveBeenCalledTimes(1)
       expect(consoleErrorSpy).toHaveBeenCalledWith(
-        'ERROR - MODDS - Hello, World!'
+        'ERROR - BLDS - Hello, World!'
       )
     })
   })

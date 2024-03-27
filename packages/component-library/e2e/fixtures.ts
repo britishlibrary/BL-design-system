@@ -13,7 +13,6 @@ export const test = base.extend<{ saveLogs: void }>({
         if (consoleMessage.type() === 'error') {
           const text = consoleMessage.text()
           if (!IGNORED_MESSAGES.includes(text)) {
-            // @ts-ignore
             logs.push(text)
           }
         }

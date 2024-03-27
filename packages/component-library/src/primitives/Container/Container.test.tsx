@@ -1,5 +1,5 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
+
 import { renderToStaticMarkup } from 'react-dom/server'
 import { render, RenderResult } from '@testing-library/react'
 
@@ -16,14 +16,10 @@ describe('Container', () => {
     })
 
     it('applied the correct style rules based on the size prop', () => {
-      expect(wrapper.getByTestId('container')).toHaveStyleRule(
-        'padding-left',
-        '2rem'
-      )
+      expect(wrapper.getByTestId('container')).toHaveStyle('padding-left: 2rem')
 
-      expect(wrapper.getByTestId('container')).toHaveStyleRule(
-        'padding-right',
-        '2rem'
+      expect(wrapper.getByTestId('container')).toHaveStyle(
+        'padding-right: 2rem'
       )
     })
 
@@ -40,14 +36,10 @@ describe('Container', () => {
     })
 
     it('applied the correct style rules based on the size prop', () => {
-      expect(wrapper.getByTestId('container')).toHaveStyleRule(
-        'padding-left',
-        '2rem'
-      )
+      expect(wrapper.getByTestId('container')).toHaveStyle('padding-left: 2rem')
 
-      expect(wrapper.getByTestId('container')).toHaveStyleRule(
-        'padding-right',
-        '2rem'
+      expect(wrapper.getByTestId('container')).toHaveStyle(
+        'padding-right: 2rem'
       )
     })
   })
@@ -58,14 +50,12 @@ describe('Container', () => {
     })
 
     it('applied the correct style rules based on the size prop', () => {
-      expect(wrapper.getByTestId('container')).toHaveStyleRule(
-        'padding-left',
-        '2.5rem'
+      expect(wrapper.getByTestId('container')).toHaveStyle(
+        'padding-left: 2.5rem'
       )
 
-      expect(wrapper.getByTestId('container')).toHaveStyleRule(
-        'padding-right',
-        '2.5rem'
+      expect(wrapper.getByTestId('container')).toHaveStyle(
+        'padding-right: 2.5rem'
       )
     })
   })

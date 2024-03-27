@@ -28,6 +28,18 @@ function isIE11(): boolean {
   return !!window.MSInputMethodContext && !!document.documentMode
 }
 
+function warnIfOverwriting<Props>(
+  props: Props,
+  propertyName: keyof Props,
+  componentName: string
+): void {
+  if (props[propertyName]) {
+    logger.warn(
+      `Prop \`${propertyName.toString()}\` on \`${componentName}\` will be overwritten`
+    )
+  }
+}
+
 function withKey(
   element: React.ReactElement,
   prefix: string,
@@ -50,11 +62,16 @@ function sleep(ms: number): Promise<undefined> {
 
 export type ValueOf<T> = T[keyof T]
 
+export type KeysWithValueType<Obj, ValueType> = {
+  [Key in keyof Obj]: Obj[Key] extends ValueType ? Key : never
+}[keyof Obj & string]
+
 export {
   getInitials,
   getKey,
   hasClass,
   isIE11,
+  warnIfOverwriting,
   withKey,
   sleep,
 }

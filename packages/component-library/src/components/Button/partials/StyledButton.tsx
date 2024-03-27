@@ -1,80 +1,104 @@
 import styled, { css } from 'styled-components'
 import { selectors } from '@britishlibrary/design-tokens'
-import { rgba } from 'polished'
 
-import { ComponentSizeType, COMPONENT_SIZE, BUTTON_VARIANT } from '../constants'
-import { ButtonVariantType } from '../Button'
+import {
+  BUTTON_ICON_POSITION,
+  BUTTON_VARIANT,
+  ComponentSizeType,
+  COMPONENT_SIZE,
+} from '../constants'
+import { ButtonIconPositionType, ButtonVariantType } from '../Button'
 
-const { color, spacing, fontSize, shadow } = selectors
-
-const DROP_SHADOW = `0 2px 6px ${rgba(0, 0, 0, 0.3)}`
-const TRANSPARENT_SHADOW = shadow('0')
-const DEFAULT_HOVER_BORDER_SHADOW = `0 0 0 3px ${color('action', '100')}`
-const DANGER_HOVER_BORDER_SHADOW = `0 0 0 3px ${color('danger', '100')}`
+const { color, spacing, fontSize } = selectors
 
 const COLOR_MAP = {
   [BUTTON_VARIANT.PRIMARY]: {
-    color: color('neutral', 'white'),
-    backgroundColor: color('action', '600'),
-    borderColor: color('action', '800'),
+    color: color('common', 'white'),
+    backgroundColor: color('blue', '800'),
+    borderColor: color('blue', '800'),
     borderWidth: '2px',
-    hoverBackgroundColor: color('action', '800'),
-    hoverBoxShadow: DEFAULT_HOVER_BORDER_SHADOW,
-    activeBackgroundColor: color('action', '900'),
+    hoverColor: color('blue', '800'),
+    hoverBackgroundColor: color('common', 'white'),
+    activeColor: color('blue', '800'),
+    activeBackgroundColor: color('common', 'white'),
   },
   [BUTTON_VARIANT.SECONDARY]: {
-    color: color('action', '900'),
-    backgroundColor: color('action', '100'),
-    borderColor: color('action', '600'),
+    color: color('blue', '800'),
+    backgroundColor: color('common', 'white'),
+    borderColor: color('blue', '800'),
     borderWidth: '2px',
-    hoverBackgroundColor: color('action', '200'),
-    hoverBoxShadow: DEFAULT_HOVER_BORDER_SHADOW,
-    activeBackgroundColor: color('action', '300'),
+    hoverColor: color('common', 'white'),
+    hoverBackgroundColor: color('blue', '800'),
+    activeColor: color('common', 'white'),
+    activeBackgroundColor: color('blue', '800'),
+  },
+  [BUTTON_VARIANT.TERTIARY]: {
+    color: color('blue', '500'),
+    backgroundColor: color('common', 'white'),
+    borderColor: color('blue', '500'),
+    borderWidth: '2px',
+    hoverColor: color('common', 'white'),
+    hoverBackgroundColor: color('blue', '500'),
+    activeColor: color('common', 'white'),
+    activeBackgroundColor: color('blue', '500'),
+  },
+  [BUTTON_VARIANT.ICON]: {
+    color: color('common', 'white'),
+    backgroundColor: color('neutral', '400'),
+    borderColor: color('neutral', '400'),
+    borderWidth: '2px',
+    hoverColor: color('neutral', '400'),
+    hoverBackgroundColor: color('common', 'white'),
+    activeColor: color('neutral', '400'),
+    activeBackgroundColor: color('common', 'white'),
   },
   [BUTTON_VARIANT.DANGER]: {
-    color: color('neutral', 'white'),
-    backgroundColor: color('danger', '700'),
+    color: color('common', 'white'),
+    backgroundColor: color('danger', '900'),
     borderColor: color('danger', '900'),
     borderWidth: '2px',
-    hoverBackgroundColor: color('danger', '800'),
-    hoverBoxShadow: DANGER_HOVER_BORDER_SHADOW,
-    activeBackgroundColor: color('danger', '900'),
+    hoverColor: color('common', 'white'),
+    hoverBackgroundColor: color('common', 'white'),
+    activeColor: color('common', 'white'),
+    activeBackgroundColor: color('common', 'white'),
   },
 }
 
 const SIZE_MAP = {
-  [COMPONENT_SIZE.FORMS]: {
-    height: '46px',
+  [COMPONENT_SIZE.DEFAULT]: {
+    height: '44px',
     fontSize: fontSize('m'),
-    borderRadius: '15px',
   },
   [COMPONENT_SIZE.SMALL]: {
     height: '33px',
     fontSize: fontSize('base'),
-    borderRadius: '10px',
   },
 }
 
 interface StyledButtonProps {
   $variant: ButtonVariantType
   $size: ComponentSizeType
+  $iconPosition?: ButtonIconPositionType
 }
 
 export function getButtonStyles({
   $size,
   $variant,
+  $iconPosition = BUTTON_ICON_POSITION.RIGHT,
 }: StyledButtonProps) {
   return css`
     height: ${SIZE_MAP[$size].height};
     display: inline-flex;
+    flex-direction: ${$iconPosition === BUTTON_ICON_POSITION.LEFT
+      ? 'row-reverse'
+      : 'row'};
     align-items: center;
     justify-content: center;
-    border-radius: ${SIZE_MAP[$size].borderRadius};
-    box-shadow: ${TRANSPARENT_SHADOW}, ${DROP_SHADOW};
+    border-radius: 6px;
     outline: 0;
-    padding: 0 ${spacing('6')};
+    padding: 0 ${spacing('8')};
     font-size: ${SIZE_MAP[$size].fontSize};
-    font-weight: 400;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
     user-select: none;
@@ -86,7 +110,6 @@ export function getButtonStyles({
     }
 
     &:active {
-      box-shadow: ${TRANSPARENT_SHADOW}, ${TRANSPARENT_SHADOW};
     }
 
     ${css`
@@ -98,12 +121,12 @@ export function getButtonStyles({
       &:focus,
       &:hover {
         background-color: ${COLOR_MAP[$variant].hoverBackgroundColor};
-        box-shadow: ${COLOR_MAP[$variant].hoverBoxShadow}, ${DROP_SHADOW};
+        color: ${COLOR_MAP[$variant].hoverColor};
       }
 
       &:active {
         background-color: ${COLOR_MAP[$variant].activeBackgroundColor};
-        box-shadow: ${TRANSPARENT_SHADOW}, ${TRANSPARENT_SHADOW};
+        color: ${COLOR_MAP[$variant].activeColor};
       }
     `}
 

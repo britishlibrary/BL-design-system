@@ -36,7 +36,7 @@ const BoxSizing = createGlobalStyle`
  */
 const Hyperlinks = createGlobalStyle`
   a {
-    color: ${color('action', '500')};
+    color: ${color('blue', '500')};
     text-decoration: none;
   }
 

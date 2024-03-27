@@ -1,7 +1,10 @@
+import React from 'react'
 import 'babel-polyfill'
+import '@testing-library/jest-dom'
 import 'jest-canvas-mock'
 import 'jest-styled-components'
 import { format } from 'util'
+import whyDidYouRender from '@welldone-software/why-did-you-render'
 
 /**
  * Throw real errors for certain console errors
@@ -30,6 +33,13 @@ global.console.error = (...args) => {
  *
  */
 let updateInfos = []
+
+beforeAll(() => {
+  whyDidYouRender(React, {
+    // logOnDifferentValues: true,
+    // notifier: (updateInfo) => updateInfos.push(updateInfo),
+  })
+})
 
 beforeEach(() => {
   updateInfos = []

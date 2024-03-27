@@ -1,14 +1,28 @@
+import { IconLoader } from '@britishlibrary/icon-library'
 import React, { FormEvent } from 'react'
 
-import { ComponentSizeType, COMPONENT_SIZE, BUTTON_VARIANT } from './constants'
+import {
+  BUTTON_ICON_POSITION,
+  BUTTON_VARIANT,
+  ComponentSizeType,
+  COMPONENT_SIZE,
+} from './constants'
 import { ComponentWithClass } from '../../common/ComponentWithClass'
 import { StyledButton } from './partials/StyledButton'
+import { StyledIconWrapper } from './partials/StyledIconWrapper'
 import { StyledText } from './partials/StyledText'
+import { StyledIconLoaderWrapper } from './partials/StyledIconLoader'
 import { ValueOf } from '../../helpers'
 
 export type ButtonVariantType = ValueOf<typeof BUTTON_VARIANT>
 
+export type ButtonIconPositionType = ValueOf<typeof BUTTON_ICON_POSITION>
+
 interface ButtonBaseProps extends Omit<ComponentWithClass, 'children'> {
+  /**
+   * Position of the optional icon.
+   */
+  iconPosition?: ButtonIconPositionType
   /**
    * Toggles whether the component is disabled or not (preventing user
    * interaction).
@@ -44,29 +58,44 @@ export interface ButtonWithTextProps extends ButtonBaseProps {
    */
   children: string
   /**
+   * Optional icon to display beside the component text.
+   */
+  icon?: React.ReactNode
+  /**
    * Value for the HTML title attribute. Should be set for
    * icon-only buttons to make them accessible.
    */
   title?: string
 }
 
-export const Button: React.FC<ButtonWithTextProps> = ({
+export interface ButtonWithIconOnlyProps extends ButtonBaseProps {
+  children?: never
+  icon: React.ReactNode
+  title: string
+}
+
+export type ButtonProps = ButtonWithTextProps | ButtonWithIconOnlyProps
+
+export const Button = ({
   children,
   className,
   isDisabled,
   isLoading = false,
+  icon,
+  iconPosition = BUTTON_ICON_POSITION.RIGHT,
   onClick,
-  size = COMPONENT_SIZE.FORMS,
+  size = COMPONENT_SIZE.DEFAULT,
   title,
   type = 'button',
   variant = BUTTON_VARIANT.PRIMARY,
   ...rest
-}) => {
+}: ButtonProps) => {
   return (
     <StyledButton
       className={className}
       $variant={variant}
       $size={size}
+      $iconPosition={iconPosition}
       data-testid="button"
       disabled={isDisabled || isLoading}
       type={type}
@@ -75,7 +104,24 @@ export const Button: React.FC<ButtonWithTextProps> = ({
       onClick={onClick}
       {...rest}
     >
+      {isLoading && (
+        <StyledIconLoaderWrapper data-testid="loading-icon" aria-hidden>
+          <IconLoader size={size === COMPONENT_SIZE.DEFAULT ? 26 : 21} />
+        </StyledIconLoaderWrapper>
+      )}
       <StyledText $isLoading={isLoading}>{children}</StyledText>
+      {icon && (
+        <StyledIconWrapper
+          $buttonHasText={Boolean(children)}
+          $buttonSize={size}
+          $iconPosition={iconPosition}
+          $isLoading={isLoading}
+          aria-hidden
+          data-testid="button-icon"
+        >
+          {icon}
+        </StyledIconWrapper>
+      )}
     </StyledButton>
   )
 }
