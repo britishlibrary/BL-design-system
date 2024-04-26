@@ -9,48 +9,50 @@ import {
 } from '../constants'
 import { ButtonIconPositionType, ButtonVariantType } from '../Button'
 
-const { color, spacing, fontSize } = selectors
+const { color, shadow, spacing, fontSize } = selectors
 
 const COLOR_MAP = {
   [BUTTON_VARIANT.PRIMARY]: {
     color: color('common', 'white'),
     backgroundColor: color('blue', '800'),
-    borderColor: color('blue', '800'),
-    borderWidth: '2px',
-    hoverColor: color('blue', '800'),
-    hoverBackgroundColor: color('common', 'white'),
-    activeColor: color('blue', '800'),
-    activeBackgroundColor: color('common', 'white'),
-  },
-  [BUTTON_VARIANT.SECONDARY]: {
-    color: color('blue', '800'),
-    backgroundColor: color('common', 'white'),
-    borderColor: color('blue', '800'),
+    borderColor: color('blue', '900'),
     borderWidth: '2px',
     hoverColor: color('common', 'white'),
-    hoverBackgroundColor: color('blue', '800'),
+    hoverBorderColor: color('blue', '700'),
+    hoverBackgroundColor: color('blue', '700'),
     activeColor: color('common', 'white'),
-    activeBackgroundColor: color('blue', '800'),
+    activeBorderColor: color('blue', '800'),
+    activeBackgroundColor: color('blue', '900'),
+    dropShadow: shadow('1'),
+    activeDropShadow: shadow('2'),
   },
-  [BUTTON_VARIANT.TERTIARY]: {
+  [BUTTON_VARIANT.SECONDARY]: {
     color: color('blue', '500'),
     backgroundColor: color('common', 'white'),
     borderColor: color('blue', '500'),
     borderWidth: '2px',
     hoverColor: color('common', 'white'),
+    hoverBorderColor: color('blue', '900'),
     hoverBackgroundColor: color('blue', '500'),
     activeColor: color('common', 'white'),
+    activeBorderColor: color('blue', '900'),
     activeBackgroundColor: color('blue', '500'),
+    dropShadow: shadow('0'),
+    activeDropShadow: shadow('2'),
   },
-  [BUTTON_VARIANT.ICON]: {
-    color: color('common', 'white'),
-    backgroundColor: color('neutral', '400'),
-    borderColor: color('neutral', '400'),
+  [BUTTON_VARIANT.OUTLINE]: {
+    color: color('blue', '800'),
+    backgroundColor: color('common', 'white'),
+    borderColor: color('blue', '800'),
     borderWidth: '2px',
-    hoverColor: color('neutral', '400'),
-    hoverBackgroundColor: color('common', 'white'),
-    activeColor: color('neutral', '400'),
-    activeBackgroundColor: color('common', 'white'),
+    hoverColor: color('common', 'white'),
+    hoverBorderColor: color('blue', '900'),
+    hoverBackgroundColor: color('blue', '800'),
+    activeColor: color('common', 'white'),
+    activeBorderColor: color('blue', '900'),
+    activeBackgroundColor: color('blue', '800'),
+    dropShadow: shadow('0'),
+    activeDropShadow: shadow('2'),
   },
   [BUTTON_VARIANT.DANGER]: {
     color: color('common', 'white'),
@@ -58,9 +60,13 @@ const COLOR_MAP = {
     borderColor: color('danger', '900'),
     borderWidth: '2px',
     hoverColor: color('common', 'white'),
+    hoverBorderColor: color('blue', '900'),
     hoverBackgroundColor: color('common', 'white'),
     activeColor: color('common', 'white'),
+    activeBorderColor: color('blue', '900'),
     activeBackgroundColor: color('common', 'white'),
+    dropShadow: shadow('1'),
+    activeDropShadow: shadow('2'),
   },
 }
 
@@ -109,6 +115,10 @@ export function getButtonStyles({
       text-decoration: none;
     }
 
+    &:focus {
+      outline: 2px solid ${color('blue', '100')};
+    }
+
     &:active {
     }
 
@@ -117,9 +127,10 @@ export function getButtonStyles({
       background-color: ${COLOR_MAP[$variant].backgroundColor};
       border: ${COLOR_MAP[$variant].borderWidth} solid
         ${COLOR_MAP[$variant].borderColor};
+      box-shadow: ${COLOR_MAP[$variant].dropShadow};
 
-      &:focus,
       &:hover {
+        border-color: ${COLOR_MAP[$variant].hoverBorderColor};
         background-color: ${COLOR_MAP[$variant].hoverBackgroundColor};
         color: ${COLOR_MAP[$variant].hoverColor};
       }
@@ -127,6 +138,7 @@ export function getButtonStyles({
       &:active {
         background-color: ${COLOR_MAP[$variant].activeBackgroundColor};
         color: ${COLOR_MAP[$variant].activeColor};
+        box-shadow: ${COLOR_MAP[$variant].activeDropShadow};
       }
     `}
 

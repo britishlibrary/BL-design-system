@@ -66,12 +66,43 @@ PrimaryRightIcon.args = {
 }
 
 export const IconNoText = Template.bind({})
-IconNoText.storyName = 'Icon, no text'
+IconNoText.storyName = 'Primary with icon, no text'
 IconNoText.args = {
-  variant: BUTTON_VARIANT.ICON,
+  variant: BUTTON_VARIANT.PRIMARY,
   children: undefined,
   icon: <IconBrightnessLow />,
   title: 'Reduce brightness',
+}
+
+export const Outline = Template.bind({})
+Outline.args = {
+  variant: BUTTON_VARIANT.OUTLINE,
+  children: 'Outline',
+}
+
+export const OutlineLeftIcon = Template.bind({})
+OutlineLeftIcon.storyName = 'Outline, with left icon'
+OutlineLeftIcon.args = {
+  variant: BUTTON_VARIANT.OUTLINE,
+  children: 'Outline',
+  icon: <IconBrightnessLow />,
+  iconPosition: BUTTON_ICON_POSITION.LEFT,
+}
+
+export const OutlineDisabled = Template.bind({})
+OutlineDisabled.storyName = 'Outline, disabled'
+OutlineDisabled.args = {
+  variant: BUTTON_VARIANT.OUTLINE,
+  isDisabled: true,
+  children: 'Outline, disabled',
+}
+
+export const OutlineLoading = Template.bind({})
+OutlineLoading.storyName = 'Outline, loading'
+OutlineLoading.args = {
+  variant: BUTTON_VARIANT.OUTLINE,
+  isLoading: true,
+  children: 'Outline, loading',
 }
 
 export const Secondary = Template.bind({})
@@ -103,37 +134,6 @@ SecondaryLoading.args = {
   variant: BUTTON_VARIANT.SECONDARY,
   isLoading: true,
   children: 'Secondary, loading',
-}
-
-export const Tertiary = Template.bind({})
-Tertiary.args = {
-  variant: BUTTON_VARIANT.TERTIARY,
-  children: 'Tertiary',
-}
-
-export const TertiaryLeftIcon = Template.bind({})
-TertiaryLeftIcon.storyName = 'Tertiary, with left icon'
-TertiaryLeftIcon.args = {
-  variant: BUTTON_VARIANT.TERTIARY,
-  children: 'Tertiary',
-  icon: <IconBrightnessLow />,
-  iconPosition: BUTTON_ICON_POSITION.LEFT,
-}
-
-export const TertiaryDisabled = Template.bind({})
-TertiaryDisabled.storyName = 'Tertiary, disabled'
-TertiaryDisabled.args = {
-  variant: BUTTON_VARIANT.TERTIARY,
-  isDisabled: true,
-  children: 'Tertiary, disabled',
-}
-
-export const TertiaryLoading = Template.bind({})
-TertiaryLoading.storyName = 'Tertiary, loading'
-TertiaryLoading.args = {
-  variant: BUTTON_VARIANT.TERTIARY,
-  isLoading: true,
-  children: 'Tertiary, loading',
 }
 
 export const Danger = Template.bind({})
@@ -175,9 +175,9 @@ SmallLoading.args = {
 }
 
 export const SmallIconNoText = Template.bind({})
-SmallIconNoText.storyName = 'Small, with icon, no text '
+SmallIconNoText.storyName = 'Primary, small, with icon, no text'
 SmallIconNoText.args = {
-  variant: BUTTON_VARIANT.ICON,
+  variant: BUTTON_VARIANT.PRIMARY,
   size: COMPONENT_SIZE.SMALL,
   icon: <IconBrightnessLow />,
   title: 'Reduce brightness',

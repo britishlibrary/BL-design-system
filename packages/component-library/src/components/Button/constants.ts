@@ -3,8 +3,7 @@ import { ValueOf } from '../../helpers'
 const BUTTON_VARIANT = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
-  TERTIARY: 'tertiary',
-  ICON: 'icon',
+  OUTLINE: 'outline',
   DANGER: 'danger',
 } as const
 
