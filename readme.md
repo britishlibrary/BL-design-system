@@ -48,6 +48,20 @@ The top level project contains scripts that are then executed for all packages.
 - `test`  Runs Jest tests in all the packages.
 - `build` Runs the build script in all packages.
 
+## Commit linting
+
+- build: Changes that affect the build system or external dependencies (e.g., `npm`, `yarn`, `webpack`).
+- chore: Miscellaneous tasks that do not modify the source code or tests (e.g., updating package metadata, adding a `.gitignore` file).
+- ci: Changes to our Continuous Integration configuration files and scripts (e.g., `.github/workflows`).
+- docs: Documentation only changes (e.g., `README.md`, inline code comments).
+- feat: A new feature for the user, not a new feature for build script (e.g., adding a new module, introducing a new component).
+- fix: A bug fix for the user (e.g., correcting a typo in code, fixing a runtime error).
+- perf: A code change that improves performance (e.g., optimizing an algorithm, reducing load times).
+- refactor: A code change that neither fixes a bug nor adds a feature (e.g., renaming variables, restructuring code).
+- revert: Reverts a previous commit (e.g., reverting a feature or bug fix).
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc.).
+- test: Adding missing tests or correcting existing tests (e.g., unit tests, integration tests).
+
 ## Thanks
 
 <a href="https://www.chromaticqa.com/"><img src="https://cdn-images-1.medium.com/letterbox/147/36/50/50/1*oHHjTjInDOBxIuYHDY2gFA.png?source=logoAvatar-d7276495b101---37816ec27d7a" width="120"/></a>
